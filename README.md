@@ -293,9 +293,8 @@ This project is for **educational purposes** as part of an MCA academic project.
 
 <div align="center">
 
-**Built with ❤️ by Rishika Narayan Reddy & Sanika Lokhande**
 
-*MCA — Sem II Project | 2024-25*
+*MCA — Project | 2025-26*
 
 ⭐ Star this repo if you found it helpful!
 
