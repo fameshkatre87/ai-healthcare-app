@@ -20,7 +20,7 @@
 
 This full-stack healthcare application leverages **Artificial Intelligence** to assist patients in identifying potential diseases based on symptoms. The system integrates a **Python Flask ML API** (Random Forest Classifier trained on 41 diseases & 132 symptoms) with a **PHP + MySQL** web application — enabling real-time AI predictions accessible through a clean, modern UI.
 
-> 📌 **MCA Final Year Project** — Rishika Narayan Reddy & Sanika Lokhande
+
 
 ---
 
