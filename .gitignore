@@ -1,0 +1,6 @@
+# Ignore ML model files 
+ml-api/model/disease_model.pkl 
+ml-api/model/label_encoder.pkl 
+__pycache__/ 
+*.pyc 
+.env 
