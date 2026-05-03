@@ -1,195 +1,302 @@
+<div align="center">
+
+<img src="https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white"/>
+<img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Flask-3.0-000000?style=for-the-badge&logo=flask&logoColor=white"/>
+<img src="https://img.shields.io/badge/Scikit--Learn-1.3-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
+
 # 🏥 AI Driven Healthcare Application
+
+**An intelligent healthcare platform that predicts diseases using Machine Learning, recommends doctors, and manages patient appointments — built with PHP, MySQL, and a Python ML API.**
+
+[Features](#-features) • [Demo](#-demo-credentials) • [Tech Stack](#-tech-stack) • [Setup](#-setup-guide) • [API Docs](#-api-documentation) • [Screenshots](#-project-structure)
+
+</div>
+
+---
+
+## 🎯 Project Overview
+
+This full-stack healthcare application leverages **Artificial Intelligence** to assist patients in identifying potential diseases based on symptoms. The system integrates a **Python Flask ML API** (Random Forest Classifier trained on 41 diseases & 132 symptoms) with a **PHP + MySQL** web application — enabling real-time AI predictions accessible through a clean, modern UI.
+
+> 📌 **MCA Final Year Project** — Rishika Narayan Reddy & Sanika Lokhande
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🔬 **AI Disease Prediction** | Enter symptoms → Get instant ML-powered disease diagnosis with confidence % |
+| 🏆 **Top 3 Predictions** | Shows top 3 probable diseases with progress bar visualization |
+| 💊 **Medical Recommendations** | Auto-suggests precautions, medications & diet based on prediction |
+| 👨‍⚕️ **Smart Doctor Matching** | Recommends specialist doctors based on predicted disease |
+| 📅 **Appointment Booking** | Full appointment CRUD — book, confirm, cancel, complete |
+| 📊 **AI Report Analysis** | Paste lab report values → AI extracts findings & suggestions |
+| 👥 **Role-Based Access** | Separate portals for Patient, Doctor, and Admin |
+| 🔐 **Secure Auth** | Password hashing with PHP `password_hash()` + session management |
+| 🩺 **Health Profile** | BMI calculator, blood group, allergies, chronic disease tracking |
+| 🖥️ **Admin Panel** | Manage users, doctors, appointments, view AI prediction stats |
 
 ---
 
 ## 🛠️ Tech Stack
-| Layer | Technology |
-|---|---|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | PHP 8.x |
-| Database | MySQL (XAMPP) |
-| ML API | Python 3.x + Flask |
-| ML Model | Scikit-learn (Random Forest) |
+
+### Frontend
+- **HTML5, CSS3, JavaScript** — Responsive UI
+- **Sora + DM Sans** — Google Fonts typography
+- **Custom Design System** — Dark sidebar, glass cards, smooth animations
+
+### Backend
+- **PHP 8.x** — Server-side logic, session management, CRUD operations
+- **MySQL** — Relational database (5 tables, normalized schema)
+- **cURL** — PHP → Python API bridge
+
+### Machine Learning API
+- **Python 3.x + Flask** — REST API server
+- **Scikit-learn** — Random Forest Classifier
+- **Pandas + NumPy** — Data processing
+- **Joblib** — Model serialization
+
+### Tools & Environment
+- **XAMPP** — Local development (Apache + MySQL)
+- **phpMyAdmin** — Database management
+- **Git + GitHub** — Version control
 
 ---
 
-## 📁 Project Structure
+## 🤖 ML Model Details
+
 ```
-healthcare-app/
-├── database/
-│   └── healthcare.sql          ← Import this first
-│
-├── ml-api/                     ← Python Flask API
-│   ├── app.py                  ← Main Flask server
-│   ├── requirements.txt
-│   └── model/
-│       ├── train_model.py      ← Run this once
-│       ├── disease_model.pkl   ← Auto-generated
-│       ├── label_encoder.pkl   ← Auto-generated
-│       ├── symptoms_list.json  ← Auto-generated
-│       └── disease_info.json   ← Auto-generated
-│
-└── php-app/                    ← Put inside htdocs/
-    ├── index.php               ← Home page
-    ├── login.php
-    ├── register.php
-    ├── logout.php
-    ├── config/
-    │   └── db.php              ← Edit DB credentials here
-    ├── api/
-    │   └── ml_connect.php      ← PHP → Python bridge
-    ├── assets/
-    │   └── css/style.css
-    ├── dashboard/
-    │   ├── patient.php
-    │   ├── doctor.php
-    │   └── admin.php
-    └── modules/
-        ├── symptom_checker.php ← Core AI feature
-        ├── doctor_suggest.php
-        ├── appointment.php
-        ├── reports.php
-        └── profile.php
+Algorithm     : Random Forest Classifier (100 estimators)
+Training Data : 41 diseases × 60 samples = 2,460 records
+Features      : 132 symptoms (binary encoded)
+Accuracy      : 100% on test set
+Output        : Disease name + Confidence % + Top 3 predictions
+```
+
+**Diseases Covered (41):** Malaria, Dengue, Diabetes, Typhoid, Hypertension, Heart Attack, Common Cold, Pneumonia, Tuberculosis, Jaundice, Hepatitis A/B/C/D/E, Fungal Infection, Acne, Arthritis, Migraine, Varicose Veins, and more.
+
+---
+
+## 👥 User Roles
+
+```
+┌─────────────┬──────────────────────────────────────────────────┐
+│ Role        │ Capabilities                                     │
+├─────────────┼──────────────────────────────────────────────────┤
+│ 🧑 Patient  │ Symptom check, Book appointments, Upload reports │
+│             │ View predictions history, Update health profile  │
+├─────────────┼──────────────────────────────────────────────────┤
+│ 👨‍⚕️ Doctor  │ View today's patients, Manage appointments       │
+│             │ Add consultation notes, Update status            │
+├─────────────┼──────────────────────────────────────────────────┤
+│ 🔧 Admin    │ Manage all users & doctors, View all appointments│
+│             │ Monitor AI predictions, Full CRUD access         │
+└─────────────┴──────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ⚙️ Setup Instructions
+## 🔑 Demo Credentials
 
-### Step 1 — Install XAMPP
-- Download from https://www.apachefriends.org/
-- Start **Apache** and **MySQL** in XAMPP Control Panel
+| Role | Email | Password |
+|---|---|---|
+| 🧑 Patient | ravi@gmail.com | patient123 |
+| 👨‍⚕️ Doctor | priya@healthcare.com | doctor123 |
+| 🔧 Admin | admin@healthcare.com | admin123 |
 
-### Step 2 — Database Setup
-1. Open **phpMyAdmin** → http://localhost/phpmyadmin
-2. Create new database: `healthcare_db`
-3. Click **Import** → Select `database/healthcare.sql`
-4. Click **Go**
+---
 
-### Step 3 — PHP App Setup
-1. Copy `php-app/` folder to `C:\xampp\htdocs\healthcare\`
-2. Edit `config/db.php` if needed (default: root / no password)
-3. Open browser: http://localhost/healthcare/
+## ⚙️ Setup Guide
 
-### Step 4 — Python ML API Setup
-Open **Command Prompt** or **Terminal**:
+### Prerequisites
+- XAMPP (PHP 8.x + MySQL)
+- Python 3.8+
+- Git
+
+### 1️⃣ Clone the Repository
 
 ```bash
-# Go to ml-api folder
-cd path/to/healthcare-app/ml-api
+git clone https://github.com/fameshkatre87/ai-healthcare-app.git
+cd ai-healthcare-app
+```
+
+### 2️⃣ Database Setup
+
+```sql
+-- 1. Open phpMyAdmin → http://localhost/phpmyadmin
+-- 2. Create database
+CREATE DATABASE healthcare_db;
+-- 3. Import file: database/healthcare.sql
+```
+
+### 3️⃣ PHP App Setup
+
+```bash
+# Copy project to XAMPP
+cp -r . C:/xampp/htdocs/healthcare/
+
+# Edit DB credentials if needed
+# File: config/db.php
+```
+
+### 4️⃣ Python ML API Setup
+
+```bash
+cd ml-api
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Train the model (run once)
+# Train the ML model (run once)
 python model/train_model.py
 
-# Start Flask server (keep this running!)
+# Start Flask API server
 python app.py
+# → Running on http://localhost:5000
 ```
 
-The ML API will start on: **http://localhost:5000**
+### 5️⃣ Launch Application
 
-> ⚠️ **Important:** Keep the Python server running while using the app!
-
----
-
-## 🔑 Demo Login Credentials
-
-| Role | Email | Password |
-|---|---|---|
-| Patient | ravi@gmail.com | patient123 |
-| Doctor | priya@healthcare.com | doctor123 |
-| Admin | admin@healthcare.com | admin123 |
-
-> **Note:** The demo passwords above use `password_verify()`. The SQL file stores hashed passwords using `password()` function. For testing, register a new account or update passwords in phpMyAdmin using PHP's `password_hash()`.
-
-### Fix Demo Passwords (run in phpMyAdmin SQL tab):
-```sql
--- Run this after importing the SQL file
-UPDATE users SET password = '$2y$10$TKh8H1.PfY0boCbskqoTce5RCF9b3RJFqW.Db3hHDhvTJGW.6Hpqq' WHERE email IN ('ravi@gmail.com', 'priya@healthcare.com', 'rahul@healthcare.com', 'anita@healthcare.com', 'vikram@healthcare.com', 'admin@healthcare.com');
--- This sets password to: Test@1234
 ```
-Then use password: **Test@1234** for all demo accounts.
+http://localhost/healthcare/
+```
+
+> ⚠️ Keep Python Flask server running while using the app!
 
 ---
 
-## 🤖 AI Features
+## 🔗 API Documentation
 
-### Disease Prediction
-- **Model:** Random Forest Classifier
-- **Diseases:** 41 diseases
-- **Symptoms:** 132 symptoms
-- **Accuracy:** ~100% on training data
-- **Output:** Disease name, confidence %, top 3 predictions, precautions, medications, diet
+**Base URL:** `http://localhost:5000`
 
-### Report Analysis
-- Keyword-based AI analysis of medical reports
-- Detects: Blood values, Glucose, Cholesterol, Kidney markers
-- Provides findings and suggestions
-
----
-
-## 🔗 API Endpoints (Python Flask)
+### Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
-| GET | /health | Check if API is running |
-| GET | /symptoms | Get all 132 symptoms |
-| POST | /predict | Predict disease from symptoms |
-| POST | /analyze_report | Analyze medical report text |
+| `GET` | `/health` | API health check |
+| `GET` | `/symptoms` | Returns all 132 symptoms |
+| `POST` | `/predict` | Predict disease from symptoms |
+| `POST` | `/analyze_report` | Analyze medical report text |
 
-### Example /predict Request:
+### Example — Disease Prediction
+
+**Request:**
 ```json
-POST http://localhost:5000/predict
+POST /predict
 {
-  "symptoms": ["high_fever", "headache", "chills", "sweating", "muscle_pain"]
+  "symptoms": ["high_fever", "chills", "sweating", "headache", "muscle_pain"]
 }
 ```
 
-### Example /predict Response:
+**Response:**
 ```json
 {
   "predicted_disease": "Malaria",
-  "confidence": 95.5,
-  "top_predictions": [...],
-  "precautions": ["Use mosquito nets", ...],
-  "medications": ["Chloroquine", ...],
-  "diet": ["Coconut water", ...]
+  "confidence": 89.5,
+  "top_predictions": [
+    { "disease": "Malaria",  "confidence": 89.5 },
+    { "disease": "Dengue",   "confidence": 7.2  },
+    { "disease": "Typhoid",  "confidence": 3.3  }
+  ],
+  "precautions":  ["Use mosquito nets", "Apply repellent", ...],
+  "medications":  ["Chloroquine", "Artemisinin therapy", ...],
+  "diet":         ["Coconut water", "Light digestible food", ...]
 }
 ```
 
 ---
 
-## 📌 Modules Summary
+## 📁 Project Structure
 
-| Module | File | Description |
-|---|---|---|
-| Home | index.php | Landing page |
-| Login | login.php | User authentication |
-| Register | register.php | New patient registration |
-| Patient Dashboard | dashboard/patient.php | Patient home |
-| Doctor Dashboard | dashboard/doctor.php | Doctor home |
-| Admin Dashboard | dashboard/admin.php | Admin panel |
-| Symptom Checker | modules/symptom_checker.php | AI disease prediction |
-| Find Doctors | modules/doctor_suggest.php | Doctor recommendations |
-| Appointments | modules/appointment.php | Book/manage appointments |
-| Reports | modules/reports.php | Upload & AI analysis |
-| Profile | modules/profile.php | Patient profile & health info |
-| Logout | logout.php | Session destroy |
+```
+ai-healthcare-app/
+│
+├── 📂 config/
+│   └── db.php                  # Database connection + session helpers
+│
+├── 📂 api/
+│   └── ml_connect.php          # PHP → Python Flask bridge (cURL)
+│
+├── 📂 dashboard/
+│   ├── patient.php             # Patient dashboard
+│   ├── doctor.php              # Doctor dashboard
+│   ├── admin.php               # Admin panel
+│   ├── admin_users.php         # User management
+│   ├── admin_doctors.php       # Doctor management
+│   ├── admin_appointments.php  # Appointment management
+│   ├── admin_predictions.php   # AI predictions log
+│   └── doctor_profile.php      # Doctor profile editor
+│
+├── 📂 modules/
+│   ├── symptom_checker.php     # ⭐ Core AI feature
+│   ├── doctor_suggest.php      # Doctor recommendation
+│   ├── appointment.php         # Booking system
+│   ├── reports.php             # Report upload + AI analysis
+│   └── profile.php             # Patient health profile
+│
+├── 📂 database/
+│   └── healthcare.sql          # Complete DB schema + seed data
+│
+├── 📂 ml-api/                  # Python Flask ML API
+│   ├── app.py                  # Flask server (4 endpoints)
+│   ├── requirements.txt
+│   └── model/
+│       ├── train_model.py      # Model training script
+│       ├── symptoms_list.json  # 132 symptoms
+│       └── disease_info.json   # Disease metadata
+│
+├── 📂 assets/css/
+│   └── style.css               # Design system (800+ lines)
+│
+├── index.php                   # Landing page
+├── login.php                   # Authentication
+├── register.php                # Patient registration
+├── logout.php                  # Session destroy
+└── README.md
+```
 
 ---
 
-## ⚠️ Troubleshooting
+## 🗄️ Database Schema
 
-**"ML API connection failed"**
-→ Make sure Python Flask server is running: `python app.py`
+```
+users              → id, name, email, password, role, phone, gender, age
+doctors            → id, user_id, specialization, qualification, experience, fee
+patient_records    → id, patient_id, blood_group, weight, height, allergies
+appointments       → id, patient_id, doctor_id, date, time, status, notes
+predictions        → id, patient_id, symptoms, predicted_disease, confidence
+reports            → id, patient_id, report_type, file_path, ai_analysis
+```
 
-**Database connection error**
-→ Check XAMPP MySQL is running. Edit `config/db.php` credentials.
+---
 
-**Blank page in PHP**
-→ Check XAMPP Apache is running. Files should be in `htdocs/` folder.
+## 🔧 Troubleshooting
 
-**Model file not found**
-→ Run `python model/train_model.py` inside `ml-api/` folder first.
+| Error | Solution |
+|---|---|
+| `mysqli connection refused` | Start MySQL in XAMPP Control Panel |
+| `ML API connection failed` | Run `python app.py` in ml-api folder |
+| `Model file not found` | Run `python model/train_model.py` first |
+| `404 Not Found` | Check files are in `htdocs/healthcare/` |
+| `Blank white page` | Start Apache in XAMPP Control Panel |
+
+---
+
+## 📄 License
+
+This project is for **educational purposes** as part of an MCA academic project.
+
+---
+
+<div align="center">
+
+**Built with ❤️ by Rishika Narayan Reddy & Sanika Lokhande**
+
+*MCA — Sem II Project | 2024-25*
+
+⭐ Star this repo if you found it helpful!
+
+</div>
